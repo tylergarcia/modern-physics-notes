@@ -3,7 +3,7 @@ name: Deploy Quartz site to GitHub Pages
 on:
   push:
     branches:
-      - main   # If your default branch is named 'v5', change 'main' to 'v5'
+      - v5   # If your default branch is named 'v5', change 'main' to 'v5'
   workflow_dispatch:
 
 permissions:
