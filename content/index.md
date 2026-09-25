@@ -5,8 +5,8 @@
 
 ## Visual Aids
 
-- [Relativistic Velocity Addition](https://tylergarcia.github.io/modern-physics-notes/adding-speeds.html)
-- [Doppler Effect](https://tylergarcia.github.io/modern-physics-notes/doppler-effect.html)
-- [Moving Clocks Run Slower](https://tylergarcia.github.io/modern-physics-notes/light-clock.html)
-- [Twin Paradox](https://tylergarcia.github.io/modern-physics-notes/twin-paradox.html)
-- [What Does Each Transformation Keep?](https://tylergarcia.github.io/modern-physics-notes/what-each-transformation-keeps.html)
+- [Relativistic Velocity Addition](https://tylergarcia.github.io/modern-physics-notes/static/adding-speeds.html)
+- [Doppler Effect](https://tylergarcia.github.io/modern-physics-notes/static/doppler-effect.html)
+- [Moving Clocks Run Slower](https://tylergarcia.github.io/modern-physics-notes/static/light-clock.html)
+- [Twin Paradox](https://tylergarcia.github.io/modern-physics-notes/static/twin-paradox.html)
+- [What Does Each Transformation Keep?](https://tylergarcia.github.io/modern-physics-notes/static/what-each-transformation-keeps.html)
