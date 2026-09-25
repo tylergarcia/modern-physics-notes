@@ -1,13 +1,11 @@
 # Exam 1 Review
 
 ### Visual Aids
-**[Visual Aid - Moving Clocks Run Slow](https://claude.ai/artifact/Gjw41yUXESAb3WudkFYwy8)**
-
-**[Visual Aid - Doppler Effect](https://claude.ai/artifact/CsUMKVbCoxsz5eJGJ96bN5)**
-
-**[Visual Aid - Twin Paradox](https://claude.ai/artifact/Cibbv2F3QZuV2f7yHpSTKk)**
-
-**[Visual Aid - Relativistic Velocity Addition](https://claude.ai/artifact/P291rML5r4NpxQwy9B5zpa)**
+[[adding-speeds.html]] Visual Aid – Relativistic Velocity Addition
+[[doppler-effect.html]] Visual Aid - Doppler Effect
+[[light-clock.html]] Visual Aid - Moving Clocks Run Slower
+[[twin-paradox.html]] Visual Aid - Twin Paradox
+[[what-each-transformation-keeps.html]] Visual Aid - What Does Each Transformation Keep?
 
 ## Galilean Transformation
 $$
