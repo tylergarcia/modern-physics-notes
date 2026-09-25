@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>What Each Transformation Keeps</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  --paper: #EBEFF1; --panel: #FAFBFB; --ink: #16202A; --ink-2: #4A5662; --ink-3: #85919D;
+  --rule: #D3DADF; --grid: #E4E9ED; --kp: #0E6A88; --kp-soft: rgba(14,106,136,.2);
+  --inv: #A6325F; --inv-wash: rgba(166,50,95,.08); --light: #B07B0C;
+  --serif: 'Newsreader', 'Iowan Old Style', Palatino, Georgia, serif;
+  --sans: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0F151C; --panel: #151D26; --ink: #E3E8ED; --ink-2: #A7B2BD; --ink-3: #6C7985;
+    --rule: #28333F; --grid: #1E2832; --kp: #5CB5D5; --kp-soft: rgba(92,181,213,.22);
+    --inv: #E07AA2; --inv-wash: rgba(224,122,162,.1); --light: #DDAE48;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0F151C; --panel: #151D26; --ink: #E3E8ED; --ink-2: #A7B2BD; --ink-3: #6C7985;
+  --rule: #28333F; --grid: #1E2832; --kp: #5CB5D5; --kp-soft: rgba(92,181,213,.22);
+  --inv: #E07AA2; --inv-wash: rgba(224,122,162,.1); --light: #DDAE48;
+}
+html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+*, *::before, *::after { box-sizing: inherit; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--serif); font-size: 18px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+.wrap { max-width: 1180px; margin: 0 auto; padding: 48px 28px 40px; }
+
+header { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px 32px; flex-wrap: wrap; margin-bottom: 26px; }
+h1 { font-weight: 500; font-size: clamp(30px, 4.4vw, 46px); line-height: 1.08; letter-spacing: -0.012em; margin: 0 0 8px; }
+.dek { margin: 0; color: var(--ink-2); font-size: 19px; max-width: 58ch; }
+.pause { font-family: var(--sans); font-size: 14px; color: var(--ink-2); background: transparent; border: 1px solid var(--rule); border-radius: 999px; padding: 6px 14px; cursor: pointer; }
+.pause:hover { color: var(--ink); border-color: var(--ink-3); }
+.pause:focus-visible { outline: 2px solid var(--kp); outline-offset: 3px; }
+
+.plates { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+figure { margin: 0; background: var(--panel); border: 1px solid var(--rule); border-radius: 6px; padding: 16px 16px 18px; }
+figure h2 { font-size: 22px; font-weight: 500; margin: 0 0 2px; }
+figure .keeps { font-family: var(--sans); font-size: 14.5px; margin: 0 0 8px; color: var(--ink-2); }
+figure .keeps b { color: var(--inv); font-weight: 600; }
+svg { width: 100%; height: auto; display: block; }
+svg text { font-family: var(--serif); font-style: italic; paint-order: stroke; stroke: var(--panel); stroke-width: 5px; stroke-linejoin: round; }
+.g { stroke: var(--grid); stroke-width: 1; }
+.gp { stroke: var(--kp-soft); stroke-width: 1; }
+.ax { stroke: var(--ink); stroke-width: 1.5; }
+.axp { stroke: var(--kp); stroke-width: 2.2; }
+.ah { fill: var(--ink); } .ahp { fill: var(--kp); }
+.lt { stroke: var(--light); stroke-width: 1.5; stroke-dasharray: 6 5; }
+.inv { fill: none; stroke: var(--inv); stroke-width: 2.4; }
+.cons { stroke: var(--kp); stroke-width: 1.2; stroke-dasharray: 4 4; }
+.pt { fill: var(--inv); stroke: var(--panel); stroke-width: 2.5; }
+.lk { fill: var(--ink); font-size: 21px; }
+.lp { fill: var(--kp); font-size: 21px; }
+.ll { fill: var(--light); font-size: 16px; }
+.lP { fill: var(--inv); font-size: 20px; }
+
+.ro { font-family: var(--sans); font-size: 14.5px; font-variant-numeric: tabular-nums; margin-top: 8px; }
+.ro div { display: flex; justify-content: space-between; gap: 10px; padding: 6px 8px; border-radius: 3px; }
+.ro .c { color: var(--kp); }
+.ro .k { color: var(--inv); font-weight: 500; background: var(--inv-wash); }
+.ro .x { color: var(--ink-3); }
+.ro .tag { font-size: 12.5px; }
+figure .note { font-size: 16px; color: var(--ink-2); margin: 10px 8px 0; line-height: 1.45; }
+
+footer { margin-top: 22px; font-size: 17px; color: var(--ink-2); max-width: 90ch; }
+footer b { color: var(--ink); font-weight: 500; }
+
+@media (max-width: 900px) {
+  .plates { grid-template-columns: 1fr; max-width: 460px; margin: 0 auto; }
+  header { align-items: flex-start; }
+}
+@media (max-width: 560px) { .wrap { padding: 28px 14px 32px; } body { font-size: 17px; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <h1>What each transformation keeps</h1>
+      <p class="dek">The same point P, seen from a changing frame three ways. The coordinates keep changing. One quantity never does.</p>
+    </div>
+    <button class="pause" id="pause" aria-pressed="false">Pause</button>
+  </header>
+
+  <div class="plates">
+    <figure>
+      <h2>Rotation</h2>
+      <p class="keeps">Keeps <b>x² + y²</b>, so P stays on its circle</p>
+      <svg id="p-rot" viewBox="0 0 400 400" role="img" aria-label="Axes rotating while point P stays on a fixed circle."></svg>
+      <div class="ro" id="r-rot"></div>
+    </figure>
+    <figure>
+      <h2>Galilean</h2>
+      <p class="keeps">Keeps <b>t</b>, so P stays on its line of "now"</p>
+      <svg id="p-gal" viewBox="0 0 400 400" role="img" aria-label="Only the time axis tips while point P stays on a fixed horizontal line."></svg>
+      <div class="ro" id="r-gal"></div>
+    </figure>
+    <figure>
+      <h2>Lorentz</h2>
+      <p class="keeps">Keeps <b>(ct)² − x²</b>, so P stays on its hyperbola</p>
+      <svg id="p-lor" viewBox="0 0 400 400" role="img" aria-label="Both axes tip toward the light line while event P stays on a fixed hyperbola."></svg>
+      <div class="ro" id="r-lor"></div>
+    </figure>
+  </div>
+
+  <footer><b>The difference is one minus sign.</b> A rotation keeps a circle, and a Lorentz boost is the same move keeping a hyperbola instead. That is why both frames agree on the interval and on c, but not on times, lengths, or what happens "at the same time."</footer>
+</div>
+
+<script>
+(function () {
+  'use strict';
+  var W = 3.2, S = 200 / W, P = [1, 2];
+  var X = function (x) { return (200 + x * S).toFixed(1); };
+  var Y = function (y) { return (200 - y * S).toFixed(1); };
+  var f = function (v) { var r = Math.round(v * 100) / 100; if (Object.is(r, -0)) r = 0; return r.toFixed(2).replace('-', '−'); };
+  var ap = function (M, u, v) { return [M[0] * u + M[1] * v, M[2] * u + M[3] * v]; };
+  var inv = function (M) { var d = M[0] * M[3] - M[1] * M[2]; return [M[3] / d, -M[1] / d, -M[2] / d, M[0] / d]; };
+  var nrm = function (v) { var l = Math.hypot(v[0], v[1]); return [v[0] / l, v[1] / l]; };
+  var ln = function (a, b, c, d, cls, ex) { return '<line x1="' + X(a) + '" y1="' + Y(b) + '" x2="' + X(c) + '" y2="' + Y(d) + '" class="' + cls + '"' + (ex || '') + '/>'; };
+  var tx = function (x, y, s, cls) { return '<text x="' + X(x) + '" y="' + Y(y) + '" class="' + cls + '" text-anchor="middle" dominant-baseline="middle">' + s + '</text>'; };
+
+  function hyper(s2) {
+    var a = Math.sqrt(s2), pts = [], u, x, y;
+    for (u = -2.4; u <= 2.4; u += 0.03) { x = a * Math.sinh(u); y = a * Math.cosh(u); if (Math.abs(x) < 3.6 && y < 3.6) pts.push(X(x) + ',' + Y(y)); }
+    return '<path class="inv" d="M' + pts.join('L') + '"/>';
+  }
+
+  function plate(id, kind, M, yLab) {
+    var o = ['<defs><marker id="a' + id + '" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse" orient="auto"><path class="ah" d="M0,0L10,5L0,10z"/></marker>' +
+      '<marker id="b' + id + '" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto"><path class="ahp" d="M0,0L10,5L0,10z"/></marker></defs>'];
+    var v, k;
+    for (v = -3; v <= 3; v++) { o.push(ln(v, -W, v, W, 'g')); o.push(ln(-W, v, W, v, 'g')); }
+    for (k = -6; k <= 6; k++) {
+      if (!k) continue;
+      var a1 = ap(M, k, -9), a2 = ap(M, k, 9), b1 = ap(M, -9, k), b2 = ap(M, 9, k);
+      o.push(ln(a1[0], a1[1], a2[0], a2[1], 'gp')); o.push(ln(b1[0], b1[1], b2[0], b2[1], 'gp'));
+    }
+    if (kind !== 'rot') { o.push(ln(-4, -4, 4, 4, 'lt')); o.push(ln(-4, 4, 4, -4, 'lt')); o.push(tx(-2.75, 3.0, 'light', 'll')); }
+    if (kind === 'rot') o.push('<circle cx="200" cy="200" r="' + (Math.hypot(P[0], P[1]) * S).toFixed(1) + '" class="inv"/>');
+    else if (kind === 'gal') o.push(ln(-W, P[1], W, P[1], 'inv'));
+    else o.push(hyper(P[1] * P[1] - P[0] * P[0]));
+    o.push(ln(-W, 0, W - 0.1, 0, 'ax', ' marker-end="url(#a' + id + ')"'));
+    o.push(ln(0, -W, 0, W - 0.1, 'ax', ' marker-end="url(#a' + id + ')"'));
+    o.push(tx(3.0, 0.25, 'x', 'lk')); o.push(tx(-0.3, 3.0, yLab, 'lk'));
+    var e1 = nrm(ap(M, 1, 0)), e2 = nrm(ap(M, 0, 1)), L = 3.1;
+    o.push(ln(-L * e1[0], -L * e1[1], L * e1[0], L * e1[1], 'axp', ' marker-end="url(#b' + id + ')"'));
+    o.push(ln(-L * e2[0], -L * e2[1], L * e2[0], L * e2[1], 'axp', ' marker-end="url(#b' + id + ')"'));
+    o.push(tx(2.8 * e1[0] + 0.3 * e1[1], 2.8 * e1[1] - 0.3 * e1[0], 'x′', 'lp'));
+    o.push(tx(2.8 * e2[0] + 0.32 * e2[1], 2.8 * e2[1] - 0.32 * e2[0], yLab + '′', 'lp'));
+    var Pp = ap(inv(M), P[0], P[1]), f1 = ap(M, Pp[0], 0), f2 = ap(M, 0, Pp[1]);
+    o.push(ln(P[0], P[1], f1[0], f1[1], 'cons')); o.push(ln(P[0], P[1], f2[0], f2[1], 'cons'));
+    o.push('<circle cx="' + X(P[0]) + '" cy="' + Y(P[1]) + '" r="6.5" class="pt"/>');
+    o.push(tx(P[0] - 0.3, P[1] + 0.3, 'P', 'lP'));
+    document.getElementById('p-' + id).innerHTML = o.join('');
+    return Pp;
+  }
+
+  function draw(u) {
+    var th = u, b = Math.tanh(u), g = 1 / Math.sqrt(1 - b * b);
+    var c = Math.cos(th), s = Math.sin(th);
+    var r = plate('rot', 'rot', [c, -s, s, c], 'y');
+    document.getElementById('r-rot').innerHTML =
+      '<div class="c"><span>x′ = ' + f(r[0]) + '</span><span>y′ = ' + f(r[1]) + '</span></div>' +
+      '<div class="k"><span>x′² + y′² = ' + f(r[0] * r[0] + r[1] * r[1]) + '</span><span class="tag">same as in K</span></div>';
+
+    var gl = plate('gal', 'gal', [1, b, 0, 1], 'ct');
+    document.getElementById('r-gal').innerHTML =
+      '<div class="c"><span>x′ = ' + f(gl[0]) + '</span><span>ct′ = ' + f(gl[1]) + '</span></div>' +
+      '<div class="k"><span>t′ = t</span><span class="tag">same as in K</span></div>' +
+      '<div class="x"><span>(ct′)² − x′² = ' + f(gl[1] * gl[1] - gl[0] * gl[0]) + '</span><span class="tag">not kept</span></div>';
+
+    var lr = plate('lor', 'lor', [g, g * b, g * b, g], 'ct');
+    document.getElementById('r-lor').innerHTML =
+      '<div class="c"><span>x′ = ' + f(lr[0]) + '</span><span>ct′ = ' + f(lr[1]) + '</span></div>' +
+      '<div class="k"><span>(ct′)² − x′² = ' + f(lr[1] * lr[1] - lr[0] * lr[0]) + '</span><span class="tag">same as in K</span></div>' +
+      '<div class="x"><span>β = ' + f(b) + '</span><span class="tag">each axis tips toward the light line</span></div>';
+  }
+
+  var btn = document.getElementById('pause');
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var playing = !reduce, t0 = null, elapsed = 0, PERIOD = 7000, AMP = 0.9;
+  function label() { btn.textContent = playing ? 'Pause' : 'Play'; btn.setAttribute('aria-pressed', playing ? 'false' : 'true'); }
+  function frame(ts) {
+    if (!playing) return;
+    if (t0 === null) t0 = ts - elapsed;
+    elapsed = ts - t0;
+    draw(AMP * Math.sin(2 * Math.PI * elapsed / PERIOD));
+    requestAnimationFrame(frame);
+  }
+  btn.addEventListener('click', function () {
+    playing = !playing; label();
+    if (playing) { t0 = null; requestAnimationFrame(frame); }
+  });
+  draw(reduce ? 0.6 : 0);
+  if (reduce) elapsed = PERIOD * Math.asin(0.6 / AMP) / (2 * Math.PI);
+  label();
+  if (playing) requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>
