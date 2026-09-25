@@ -2,9 +2,13 @@
 
 ### Visual Aids
 **[Visual Aid - Moving Clocks Run Slow](https://claude.ai/artifact/Gjw41yUXESAb3WudkFYwy8)**
+
 **[Visual Aid - Doppler Effect](https://claude.ai/artifact/CsUMKVbCoxsz5eJGJ96bN5)**
+
 **[Visual Aid - Twin Paradox](https://claude.ai/artifact/Cibbv2F3QZuV2f7yHpSTKk)**
+
 **[Visual Aid - Relativistic Velocity Addition](https://claude.ai/artifact/P291rML5r4NpxQwy9B5zpa)**
+
 ## Galilean Transformation
 $$
 \begin{aligned}x'&=x-vt \newline
