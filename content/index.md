@@ -1,14 +1,12 @@
 # Modern Physics Notes
-
 ## Exam Reviews
-*[[exam1-review.md]] Exam 1 Review
 
-[[adding-speeds.html]] Visual Aid – Relativistic Velocity Addition
+- [[exam1-review|Exam 1 Review]]
 
-[[doppler-effect.html]] Visual Aid - Doppler Effect
+## Visual Aids
 
-[[light-clock.html]] Visual Aid - Moving Clocks Run Slower
-
-[[twin-paradox.html]] Visual Aid - Twin Paradox
-
-[[what-each-transformation-keeps.html]] Visual Aid - What Does Each Transformation Keep?
+- [Relativistic Velocity Addition](https://tylergarcia.github.io/modern-physics-notes/adding-speeds.html)
+- [Doppler Effect](https://tylergarcia.github.io/modern-physics-notes/doppler-effect.html)
+- [Moving Clocks Run Slower](https://tylergarcia.github.io/modern-physics-notes/light-clock.html)
+- [Twin Paradox](https://tylergarcia.github.io/modern-physics-notes/twin-paradox.html)
+- [What Does Each Transformation Keep?](https://tylergarcia.github.io/modern-physics-notes/what-each-transformation-keeps.html)
