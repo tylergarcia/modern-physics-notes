@@ -1,7 +1,7 @@
 # Modern Physics Notes
 ## Exam Reviews
 
-- [exam1-review.md] Exam 1 Review
+- [Exam 1 Review](https://tylergarcia.github.io/modern-physics-notes/exam1-review)
 
 ## Visual Aids
 
