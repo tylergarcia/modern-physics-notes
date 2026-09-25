@@ -91,7 +91,9 @@ Proper length is the length of an object measured in the frame where the object 
 
 # Problem 5b - Twin Paradox/Spacetime diagram:
 **[Visual Aid - Twin Paradox](https://claude.ai/artifact/Cibbv2F3QZuV2f7yHpSTKk)**
+
 ![[Pasted image 20260924151357.png|356]]
+
 The diagram is a spacetime diagram of the twin paradox. Frank's worldline is vertical (he is at rest), Mary's worldline travels out and back, and the 45° lines are light signals exchanged between them.
 
 Signals arrive sparsely while Mary recedes, because her clock runs slow in Frank's frame and each signal must also cross a growing distance (**redshift**). They arrive densely as she returns, because the distance is shrinking (**blueshift**).
